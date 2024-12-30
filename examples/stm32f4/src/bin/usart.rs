@@ -8,7 +8,7 @@ use embassy_stm32::{bind_interrupts, peripherals, usart};
 use {defmt_rtt as _, panic_probe as _};
 
 bind_interrupts!(struct Irqs {
-    USART3 => usart::InterruptHandler<peripherals::USART3>;
+    USART2 => usart::InterruptHandler<peripherals::USART2>;
 });
 
 #[entry]
@@ -18,7 +18,7 @@ fn main() -> ! {
     let p = embassy_stm32::init(Default::default());
 
     let config = Config::default();
-    let mut usart = Uart::new_blocking(p.USART3, p.PD9, p.PD8, config).unwrap();
+    let mut usart = Uart::new_blocking(p.USART2, p.PA3, p.PA2, config).unwrap();
 
     unwrap!(usart.blocking_write(b"Hello Embassy World!\r\n"));
     info!("wrote Hello, starting echo");

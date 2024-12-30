@@ -25,6 +25,9 @@ nb = "1.0.0"
 embedded-storage = "0.3.1"
 static_cell = "2"
 bmp280-ehal = { path = "/Users/tiago/devel/repos/github/rustfundev/bmp280" }
+lcd = "0.4.1"
+
+portable-atomic = { version = "1.5", features = ["critical-section", "float"] }
 
 [profile.release]
 debug = 2
